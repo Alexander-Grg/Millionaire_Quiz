@@ -15,6 +15,10 @@
 		623AD79B276E5146007883A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623AD799276E5146007883A7 /* LaunchScreen.storyboard */; };
 		623AD7A5276E518E007883A7 /* QuestionStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AD7A4276E518E007883A7 /* QuestionStructure.swift */; };
 		623AD7A7276E535E007883A7 /* GameFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AD7A6276E535E007883A7 /* GameFlowViewController.swift */; };
+		624CBC6A277099070012ED11 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CBC69277099070012ED11 /* ResultsTableViewController.swift */; };
+		624CBC6C2770AC880012ED11 /* ResultsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624CBC6B2770AC880012ED11 /* ResultsCaretaker.swift */; };
+		62589589276F8C85001EB0A4 /* gameSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62589588276F8C85001EB0A4 /* gameSingleton.swift */; };
+		6258958B276F8CBC001EB0A4 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258958A276F8CBC001EB0A4 /* GameSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		623AD79C276E5146007883A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		623AD7A4276E518E007883A7 /* QuestionStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStructure.swift; sourceTree = "<group>"; };
 		623AD7A6276E535E007883A7 /* GameFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFlowViewController.swift; sourceTree = "<group>"; };
+		624CBC69277099070012ED11 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
+		624CBC6B2770AC880012ED11 /* ResultsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCaretaker.swift; sourceTree = "<group>"; };
+		62589588276F8C85001EB0A4 /* gameSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameSingleton.swift; sourceTree = "<group>"; };
+		6258958A276F8CBC001EB0A4 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 		623AD78D276E5146007883A7 /* Millionaire_Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				62589587276F8C69001EB0A4 /* Patterns */,
 				623AD7A3276E5179007883A7 /* Models */,
 				623AD7A2276E516A007883A7 /* Controllers */,
 				623AD78E276E5146007883A7 /* AppDelegate.swift */,
@@ -77,6 +86,7 @@
 			children = (
 				623AD792276E5146007883A7 /* MenuViewController.swift */,
 				623AD7A6276E535E007883A7 /* GameFlowViewController.swift */,
+				624CBC69277099070012ED11 /* ResultsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -85,8 +95,18 @@
 			isa = PBXGroup;
 			children = (
 				623AD7A4276E518E007883A7 /* QuestionStructure.swift */,
+				6258958A276F8CBC001EB0A4 /* GameSession.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		62589587276F8C69001EB0A4 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				62589588276F8C85001EB0A4 /* gameSingleton.swift */,
+				624CBC6B2770AC880012ED11 /* ResultsCaretaker.swift */,
+			);
+			path = Patterns;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624CBC6A277099070012ED11 /* ResultsTableViewController.swift in Sources */,
 				623AD793276E5146007883A7 /* MenuViewController.swift in Sources */,
 				623AD78F276E5146007883A7 /* AppDelegate.swift in Sources */,
+				624CBC6C2770AC880012ED11 /* ResultsCaretaker.swift in Sources */,
 				623AD791276E5146007883A7 /* SceneDelegate.swift in Sources */,
+				62589589276F8C85001EB0A4 /* gameSingleton.swift in Sources */,
+				6258958B276F8CBC001EB0A4 /* GameSession.swift in Sources */,
 				623AD7A5276E518E007883A7 /* QuestionStructure.swift in Sources */,
 				623AD7A7276E535E007883A7 /* GameFlowViewController.swift in Sources */,
 			);
