@@ -10,10 +10,11 @@ import Foundation
 
 class ResultsTableViewController: UIViewController {
     
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 extension ResultsTableViewController: UITableViewDataSource {
@@ -23,23 +24,21 @@ extension ResultsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
-        let result = gameSingleton.shared.gameSession[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for: indexPath)
+        let data = gameSingleton.shared.gameSession[indexPath.row].numberOfAnsweredQuestions
+        let data2 = gameSingleton.shared.resultPercent[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        cell.textLabel?.text = dateFormatter.string(from: result.date)
-        cell.detailTextLabel?.text = "\(String(describing: result.questionsDelegate))"
-        
+        var content = cell.defaultContentConfiguration()
+        content.text = "Game results: \(data) (Completed: \(String(describing: data2.description))%)"
+        //        content.secondaryText = dateFormatter.string(from: data.date)
+        cell.contentConfiguration = content
         return cell
     }
-    
-    
-    
 }
 
 extension ResultsTableViewController: UITableViewDelegate {
-    
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView.deselectRow(at: indexPath, animated: true)}
     }

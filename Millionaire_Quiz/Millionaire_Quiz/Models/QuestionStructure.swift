@@ -8,9 +8,11 @@
 import Foundation
 
 
-struct Question {
+struct Question: Codable {
     
     var question: String!
     var answers: [String]!
     var correctAnswer: Int!
 }
+
+

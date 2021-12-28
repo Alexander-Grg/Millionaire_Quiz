@@ -12,106 +12,143 @@ protocol GameDelegate: AnyObject {
 }
 
 class GameFlowViewController: UIViewController {
+    
+    @IBAction func gameExit(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var Buttons: [UIButton]!
     
+    let randomGame = RandomGameMode()
+    let standardGame = StandardGameMode()
+    //    private var switchModes: ModeSettings
+    //    var questions = [Question]()
+    var questionsFromUD = gameSingleton.shared.questions
+    var answerNumber = Int()
+    var answeredQuestions: Int = 0
+    
+    weak var gameDelegate: GameDelegate?
+    
+    
+    //    init(mode: SwitchGameMode) {
+    //        self.switchModes = ModeSettings(mode: mode)
+    //        super.init(nibName: nil, bundle: nil)
+    //
+    //    }
+    //
+    //    required init?(coder: NSCoder) {
+    //        super.init(coder: coder)
+    //    }
+    //
+    
+    
     @IBAction func firstButton(_ sender: Any) {
-        if answerNumber == 0 {
+        if answerNumber == 1 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            questionPicker()
+            //            switchModes.mode
+            
+            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
+            
+            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+        } else if questionsFromUD.isEmpty {
+            gameFinished()
         } else {
             wrongAnswer()
         }
     }
     @IBAction func secondButton(_ sender: Any) {
-        if answerNumber == 1 {
+        if answerNumber == 2 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            questionPicker()
+            
+            //            switchModes.mode
+            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
+            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+        } else if questionsFromUD.isEmpty {
+            gameFinished()
         } else {
             wrongAnswer()
         }
     }
     @IBAction func thirdButton(_ sender: Any) {
-        if answerNumber == 2 {
+        if answerNumber == 3 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            questionPicker()
+            
+            //            switchModes.mode
+            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
+            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+        } else if questionsFromUD.isEmpty {
+            gameFinished()
         } else {
             wrongAnswer()
         }
     }
     @IBAction func fourthButton(_ sender: Any) {
-        if answerNumber == 3 {
+        if answerNumber == 4 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            questionPicker()
+            //            switchModes.mode
+            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
+            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+        } else if questionsFromUD.isEmpty {
+            gameFinished()
         } else {
             wrongAnswer()
         }
     }
     
-    var questions = [Question]()
-    var questionNumber = Int()
-    var answerNumber = Int()
-    var answeredQuestions: Int = 0
-    weak var gameDelegate: GameDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         
-        
-        questions = [
-            Question(question: "Who is the president of Russia?", answers: ["Will Smith", "Bruce Li", "Vladimir Putin", "Barack Obama"], correctAnswer: 2),
-            Question(question: "Who won the first oscar as the best actor?", answers: ["Emil Jannings","Janet Gaynor","Charlie Chaplin","Karl Struss"], correctAnswer: 0),
-            Question(question: "What is the capital of Chile?", answers: ["Santiago","Melipilla","San Antonio","Melbourne"], correctAnswer: 0),
-            Question(question: "What is the highest mountain in Britain?", answers: ["Snowdon","Scafell Pike","Ben Nevis","Everest"], correctAnswer: 1),
-            Question(question: "How many players are there in a rugby league team?", answers: ["22","16","7","13"], correctAnswer: 3),
-            Question(question: "What is Japanese sake made from?", answers: ["Berries","Corn","Rice","Wheat"], correctAnswer: 2),
-            Question(question: "What is the capital of Westeros in Game of Thrones?", answers: ["Riverrun","King’s Landing","Pyke","Casterly Rock"], correctAnswer: 1),
-        ]
-        questionPicker()
-    }
-    
-    private func questionPicker() {
-        if questions.count > 0 {
-            questionNumber = 0
-            questionLabel.text = questions[questionNumber].question
-            answerNumber = questions[questionNumber].correctAnswer
-            
-            for element in 0..<Buttons.count {
-                Buttons[element].setTitle(questions[questionNumber].answers[element], for: .normal)
-            }
-            questions.remove(at: questionNumber)
-        }
-        else {
-            NSLog("done")
-            gameDelegate?.didEndGame(withResult: answeredQuestions)
-            let GS = GameSession(date: Date())
-            gameSingleton.shared.addSession(GS)
-            let winningAlert = UIAlertController(title: "Вы победитель! Все ответы верны.",
-                                                 message: nil,
-                                                 preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "В главное меню",
-                                            style: .default) { UIAlertAction in
-                self.performSegue(withIdentifier: "exit", sender: nil)
-            }
-            winningAlert.addAction(alertAction)
-            present(winningAlert, animated: true, completion: nil)
-        }
     }
     
     private func wrongAnswer() {
-        
-        gameDelegate?.didEndGame(withResult: answeredQuestions)
-        let GS = GameSession(date: Date())
-        gameSingleton.shared.addSession(GS)
-        
-        let alert2 = UIAlertController(title: "Неверный ответ, игра закончена",
+        //        self.gameDelegate?.didEndGame(withResult: answeredQuestions)
+        let alert2 = UIAlertController(title: "Incorrect answer, the game is finished",
                                        message: nil,
                                        preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "В главное меню", style: .default) { UIAlertAction in
-            self.performSegue(withIdentifier: "exit", sender: nil)
+        let alertAction = UIAlertAction(title: "To the main menu", style: .default) { [self] UIAlertAction in
+            //            self.performSegue(withIdentifier: "exit", sender: nil)
+            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions)
+            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions)
+            //            gameSingleton.shared.percentOfAnsweredQuestions(result: answeredQuestions)
+            gameSingleton.shared.percentOfAnsweredQuestions(result: session)
+            gameSingleton.shared.addSession(session)
+            
         }
         alert2.addAction(alertAction)
         present(alert2, animated: true, completion: nil)
     }
+    
+    private func gameFinished() {
+        answeredQuestions += 1
+        NSLog("done")
+        
+        let winningAlert = UIAlertController(title: "You won, all questions are correct!",
+                                             message: nil,
+                                             preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "To the main menu",
+                                        style: .default) { UIAlertAction in
+            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions)
+            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions)
+            //                gameSingleton.shared.percentOfAnsweredQuestions(result: self.answeredQuestions)
+            gameSingleton.shared.percentOfAnsweredQuestions(result: session)
+            gameSingleton.shared.addSession(session)
+            //
+        }
+        winningAlert.addAction(alertAction)
+        present(winningAlert, animated: true, completion: nil)
+    }
+    
 }
+
+extension GameFlowViewController: GameDelegate {
+    func didEndGame(withResult result: Int) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
 
