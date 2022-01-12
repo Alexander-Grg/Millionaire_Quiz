@@ -15,7 +15,7 @@ protocol GameModeStrategy: AnyObject {
 class RandomGameMode: GameModeStrategy {
     
     var delegate: GameDelegate?
-    var gameMode: SwitchGameMode = .random
+//    var gameMode: SwitchGameMode = .random
     func questionPicker(questions: inout [Question], buttons: [UIButton], label: UILabel, answerNumber: inout Int) {
         guard !questions.isEmpty else { return }
         let questionNumber = Int.random(in: 0..<questions.count)
@@ -35,7 +35,7 @@ extension RandomGameMode: GameDelegate {
 
 class StandardGameMode : GameModeStrategy {
     
-    var gameMode: SwitchGameMode = .standard
+//    var gameMode: SwitchGameMode = .standard
     
     func questionPicker(questions: inout [Question], buttons: [UIButton], label: UILabel, answerNumber: inout Int) {
         guard !questions.isEmpty else { return }

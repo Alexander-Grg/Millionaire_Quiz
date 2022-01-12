@@ -8,14 +8,29 @@
 import Foundation
 import UIKit
 
-
+protocol GameModeDelegate {
+    func passStateMode(state: UISwitch.State)
+}
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet var switchMode: UISwitch!
+    @IBOutlet var gameModeControl: UISegmentedControl!
     @IBAction func addCustomQuestion(_ sender: Any) {
         addQuestions()
     }
+    
+    private var gameMode: SwitchGameMode {
+        switch self.gameModeControl.selectedSegmentIndex {
+        case 0:
+            return .standard
+        case 1:
+            return .random
+        default:
+            return .standard
+        }
+    }
+    
+    var gameModeDelegate: GameModeDelegate?
     
     @IBAction func addStandard(_ sender: Any) {
         addStandardQuestions()
@@ -25,11 +40,15 @@ class SettingsViewController: UIViewController {
         UserDefaults.standard.reset()
         alertOfCancel()
     }
-    var selectedState: SwitchGameMode {
-        if switchMode.isOn == true {
-            return .random
-        } else {
-            return .standard
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToSettings":
+            guard let destination = segue.destination as? GameFlowViewController else { return }
+            destination.gameMode = self.gameMode
+        default:
+            break
         }
     }
     
@@ -148,3 +167,4 @@ class SettingsViewController: UIViewController {
         
     }
 }
+

@@ -19,38 +19,57 @@ class GameFlowViewController: UIViewController {
     }
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var Buttons: [UIButton]!
+ 
+    private var createStrategy: GameModeStrategy {
+        switch self.gameMode {
+        case .standard:
+            
+            return StandardGameMode()
+        case .random:
+            
+            return RandomGameMode()
+        }
+    }
+//    private let createModeStrategy: GameModeStrategy
+//    fileprivate init(createModeStrategy: GameModeStrategy){
+//        self.createModeStrategy = createModeStrategy
+//        super.init()
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
-    let randomGame = RandomGameMode()
-    let standardGame = StandardGameMode()
-    //    private var switchModes: ModeSettings
-    //    var questions = [Question]()
+//    var questions = [Question]()
     var questionsFromUD = gameSingleton.shared.questions
     var answerNumber = Int()
     var answeredQuestions: Int = 0
-    
+    var gameMode: SwitchGameMode = .standard
     weak var gameDelegate: GameDelegate?
     
     
-    //    init(mode: SwitchGameMode) {
-    //        self.switchModes = ModeSettings(mode: mode)
-    //        super.init(nibName: nil, bundle: nil)
-    //
-    //    }
-    //
-    //    required init?(coder: NSCoder) {
-    //        super.init(coder: coder)
-    //    }
-    //
+//    private var switchModes: ModeSettings
     
+    
+//    init(mode: SwitchGameMode) {
+//        self.switchModes = ModeSettings(mode: mode)
+//        super.init(coder: NSCoder)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
+    
+
     
     @IBAction func firstButton(_ sender: Any) {
         if answerNumber == 1 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            //            switchModes.mode
             
-            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
-            
-            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+            createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+          
+//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -60,10 +79,9 @@ class GameFlowViewController: UIViewController {
     @IBAction func secondButton(_ sender: Any) {
         if answerNumber == 2 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            
-            //            switchModes.mode
-            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
-            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+
+            createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -73,10 +91,8 @@ class GameFlowViewController: UIViewController {
     @IBAction func thirdButton(_ sender: Any) {
         if answerNumber == 3 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            
-            //            switchModes.mode
-            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
-            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+            createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -86,9 +102,8 @@ class GameFlowViewController: UIViewController {
     @IBAction func fourthButton(_ sender: Any) {
         if answerNumber == 4 && !questionsFromUD.isEmpty {
             answeredQuestions += 1
-            //            switchModes.mode
-            //            switchModes.createModeStrategy.questionPicker(questions: questions, buttons: Buttons, answeredQuestions: answeredQuestions, label: questionLabel, answerNumber: answerNumber)
-            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+            createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -99,7 +114,8 @@ class GameFlowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+//        randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+        createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         
     }
     

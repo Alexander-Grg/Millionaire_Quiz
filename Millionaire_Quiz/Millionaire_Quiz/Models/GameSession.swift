@@ -12,6 +12,7 @@ class GameSession: Codable, GameDelegate  {
     var date: Date
     var questionsDelegate: GameDelegate?
     var numberOfAnsweredQuestions: Int = 0
+    var gameMode: SwitchGameMode
     
     func didEndGame(withResult result: Int) {
         self.questionsDelegate?.didEndGame(withResult: result)
@@ -26,5 +27,6 @@ class GameSession: Codable, GameDelegate  {
     enum CodingKeys: String, CodingKey {
         case date
         case numberOfAnsweredQuestions
+        case gameMode
     }
 }

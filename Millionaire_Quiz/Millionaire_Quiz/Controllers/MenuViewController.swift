@@ -9,16 +9,27 @@ import UIKit
 
 class MenuViewController: UIViewController  {
     
+
     @IBOutlet var startGameButton: UIButton!
     @IBOutlet var lastResultLabel: UILabel!
     var answeredQuestions: Int = 0
-    
+//    private var gameMode: SwitchGameMode {
+//        switch self.gameModeControl.selectedSegmentIndex {
+//        case 0:
+//            return .standard
+//        case 1:
+//            return .random
+//        default:
+//            return .standard
+//        }
+//    }
     weak var delegate: GameDelegate?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "startGameSegue":
             guard let destination = segue.destination as? GameFlowViewController else { return }
+//            destination.gameMode = self.gameMode
             destination.gameDelegate = self
         default:
             break

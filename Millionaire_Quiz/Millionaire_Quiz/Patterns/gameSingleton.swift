@@ -14,7 +14,13 @@ final class gameSingleton {
     private let resultsCaretaker = ResultsCareTaker()
     private let questionsCareTaker = QuestionsCaretaker()
     private let resultPercentCaretaker = PercentResultCaretaker()
+//    private let gameModeCareTaker =
     private(set) var gameS: GameSession?
+    private(set) var gameMode: [GameModeStrategy] {
+        didSet {
+            
+        }
+    }
     private(set) var questions: [Question] {
         didSet {
             questionsCareTaker.saveResults(result: self.questions)
@@ -58,7 +64,8 @@ final class gameSingleton {
         resultPercent.append(percent)
     }
     
-    private  init(){
+    private init(){
+//        self.gameMode = gameMode()
         self.gameSession = self.resultsCaretaker.retrieveResults()
         self.questions = self.questionsCareTaker.retrieveResults()
         self.resultPercent = self.resultPercentCaretaker.retrieveResults()
