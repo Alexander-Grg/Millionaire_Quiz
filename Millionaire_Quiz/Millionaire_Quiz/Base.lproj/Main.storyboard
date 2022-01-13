@@ -72,6 +72,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1MN-yr-hR4">
+                                <rect key="frame" x="80" y="694" width="254" height="32"/>
+                                <segments>
+                                    <segment title="Standard mode"/>
+                                    <segment title="Random mode"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,10 +90,13 @@
                             <constraint firstItem="0cP-ag-9Xl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Hht-0S-QKc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N75-EB-BKZ" secondAttribute="trailing" constant="130" id="LpJ-ij-0Df"/>
                             <constraint firstItem="Rd6-jC-Dwe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="M6B-Ww-y2b"/>
+                            <constraint firstItem="1MN-yr-hR4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="P9Q-Kq-h4q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uPG-4Y-9kU" secondAttribute="trailing" constant="85" id="Pb6-ko-0bL"/>
+                            <constraint firstItem="1MN-yr-hR4" firstAttribute="top" secondItem="0cP-ag-9Xl" secondAttribute="bottom" constant="25" id="Pnc-2U-SMY"/>
                             <constraint firstItem="uPG-4Y-9kU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="QQQ-cc-vvH"/>
                             <constraint firstAttribute="trailing" secondItem="Rd6-jC-Dwe" secondAttribute="trailing" id="RLt-ya-Kef"/>
                             <constraint firstItem="N75-EB-BKZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="abq-0r-BYb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1MN-yr-hR4" secondAttribute="trailing" constant="80" id="bPc-9a-czX"/>
                             <constraint firstItem="93F-Mn-S68" firstAttribute="top" secondItem="X1y-6o-4L1" secondAttribute="bottom" constant="182" id="bQo-bh-wkC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X1y-6o-4L1" secondAttribute="trailing" constant="30" id="cXb-0b-ofA"/>
                             <constraint firstAttribute="bottom" secondItem="Rd6-jC-Dwe" secondAttribute="bottom" id="gTo-Kw-7cH"/>
@@ -99,6 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JoF-Zn-tZK"/>
                     <connections>
+                        <outlet property="gameModeControl" destination="1MN-yr-hR4" id="fsg-PM-k7J"/>
                         <outlet property="lastResultLabel" destination="0cP-ag-9Xl" id="qF9-FP-TLW"/>
                         <outlet property="startGameButton" destination="93F-Mn-S68" id="9q4-Qs-jYX"/>
                     </connections>

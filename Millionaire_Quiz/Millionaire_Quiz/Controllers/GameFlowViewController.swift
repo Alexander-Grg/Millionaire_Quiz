@@ -23,10 +23,8 @@ class GameFlowViewController: UIViewController {
     private var createStrategy: GameModeStrategy {
         switch self.gameMode {
         case .standard:
-            
             return StandardGameMode()
         case .random:
-            
             return RandomGameMode()
         }
     }
