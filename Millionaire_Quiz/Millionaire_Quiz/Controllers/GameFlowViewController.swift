@@ -19,7 +19,8 @@ class GameFlowViewController: UIViewController {
     }
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var Buttons: [UIButton]!
- 
+    @IBOutlet var answersLabel: UILabel!
+    
     private var createStrategy: GameModeStrategy {
         switch self.gameMode {
         case .standard:
@@ -41,7 +42,8 @@ class GameFlowViewController: UIViewController {
 //    var questions = [Question]()
     var questionsFromUD = gameSingleton.shared.questions
     var answerNumber = Int()
-    var answeredQuestions: Int = 0
+    var answeredQuestions = Observable<Int>(0)
+//    var answeredQuestions = Observable<Int>(0).value
     var gameMode: SwitchGameMode = .standard
     weak var gameDelegate: GameDelegate?
     
@@ -63,7 +65,7 @@ class GameFlowViewController: UIViewController {
     
     @IBAction func firstButton(_ sender: Any) {
         if answerNumber == 1 && !questionsFromUD.isEmpty {
-            answeredQuestions += 1
+            answeredQuestions.value += 1
             
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
           
@@ -76,7 +78,7 @@ class GameFlowViewController: UIViewController {
     }
     @IBAction func secondButton(_ sender: Any) {
         if answerNumber == 2 && !questionsFromUD.isEmpty {
-            answeredQuestions += 1
+            answeredQuestions.value += 1
 
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
 //            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
@@ -88,7 +90,7 @@ class GameFlowViewController: UIViewController {
     }
     @IBAction func thirdButton(_ sender: Any) {
         if answerNumber == 3 && !questionsFromUD.isEmpty {
-            answeredQuestions += 1
+            answeredQuestions.value += 1
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
 //            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
@@ -99,7 +101,7 @@ class GameFlowViewController: UIViewController {
     }
     @IBAction func fourthButton(_ sender: Any) {
         if answerNumber == 4 && !questionsFromUD.isEmpty {
-            answeredQuestions += 1
+            answeredQuestions.value += 1
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
 //            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
@@ -111,21 +113,27 @@ class GameFlowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+//        answeredQuestions.addObserver(self, options: [.new], closure: { [weak self] (answers, _)  in
+//            self?.answersLabel.text = "Скорость змеи: \(answers)" })
+        answeredQuestions.addObserver(self, options: [.new, .initial]) { [weak self] (answers, _) in
+            self?.answersLabel.text = "Правильных ответов \(answers) из \(gameSingleton.shared.questions.count)"
+        }
+     
         createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+     
         
     }
     
     private func wrongAnswer() {
-        //        self.gameDelegate?.didEndGame(withResult: answeredQuestions)
         let alert2 = UIAlertController(title: "Incorrect answer, the game is finished",
                                        message: nil,
                                        preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "To the main menu", style: .default) { [self] UIAlertAction in
-            //            self.performSegue(withIdentifier: "exit", sender: nil)
-            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions)
-            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions)
+            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions.value)
+            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions.value)
+          
+                
+        
             //            gameSingleton.shared.percentOfAnsweredQuestions(result: answeredQuestions)
             gameSingleton.shared.percentOfAnsweredQuestions(result: session)
             gameSingleton.shared.addSession(session)
@@ -136,7 +144,7 @@ class GameFlowViewController: UIViewController {
     }
     
     private func gameFinished() {
-        answeredQuestions += 1
+        answeredQuestions.value += 1
         NSLog("done")
         
         let winningAlert = UIAlertController(title: "You won, all questions are correct!",
@@ -144,12 +152,11 @@ class GameFlowViewController: UIViewController {
                                              preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "To the main menu",
                                         style: .default) { UIAlertAction in
-            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions)
-            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions)
-            //                gameSingleton.shared.percentOfAnsweredQuestions(result: self.answeredQuestions)
+            let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions.value)
+            self.gameDelegate?.didEndGame(withResult: self.answeredQuestions.value)
             gameSingleton.shared.percentOfAnsweredQuestions(result: session)
             gameSingleton.shared.addSession(session)
-            //
+            
         }
         winningAlert.addAction(alertAction)
         present(winningAlert, animated: true, completion: nil)

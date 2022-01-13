@@ -21,8 +21,8 @@
 		62589589276F8C85001EB0A4 /* gameSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62589588276F8C85001EB0A4 /* gameSingleton.swift */; };
 		6258958B276F8CBC001EB0A4 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258958A276F8CBC001EB0A4 /* GameSession.swift */; };
 		628275622774B17400338384 /* QuestionsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628275612774B17400338384 /* QuestionsCaretaker.swift */; };
+		6284F46C279069B0000850FC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6284F46B279069B0000850FC /* Observable.swift */; };
 		62D52CD32778E6590088BD31 /* ObserverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D52CD22778E6590088BD31 /* ObserverClass.swift */; };
-		62DB46772778DF3900BF9422 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB46762778DF3900BF9422 /* Observable.swift */; };
 		62DB46792778DF4800BF9422 /* ObservableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB46782778DF4800BF9422 /* ObservableOptions.swift */; };
 		62E53EAE278F592500DC5412 /* GameModeCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E53EAD278F592500DC5412 /* GameModeCaretaker.swift */; };
 		62EE0D792771D779003591CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EE0D782771D779003591CA /* SettingsViewController.swift */; };
@@ -47,8 +47,8 @@
 		62589588276F8C85001EB0A4 /* gameSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameSingleton.swift; sourceTree = "<group>"; };
 		6258958A276F8CBC001EB0A4 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		628275612774B17400338384 /* QuestionsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsCaretaker.swift; sourceTree = "<group>"; };
+		6284F46B279069B0000850FC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		62D52CD22778E6590088BD31 /* ObserverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverClass.swift; sourceTree = "<group>"; };
-		62DB46762778DF3900BF9422 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		62DB46782778DF4800BF9422 /* ObservableOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableOptions.swift; sourceTree = "<group>"; };
 		62E53EAD278F592500DC5412 /* GameModeCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeCaretaker.swift; sourceTree = "<group>"; };
 		62EE0D782771D779003591CA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -137,9 +137,9 @@
 		62DB46752778DF1800BF9422 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				62DB46762778DF3900BF9422 /* Observable.swift */,
 				62DB46782778DF4800BF9422 /* ObservableOptions.swift */,
 				62D52CD22778E6590088BD31 /* ObserverClass.swift */,
+				6284F46B279069B0000850FC /* Observable.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -216,10 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				624CBC6A277099070012ED11 /* ResultsTableViewController.swift in Sources */,
-				62DB46772778DF3900BF9422 /* Observable.swift in Sources */,
 				623AD793276E5146007883A7 /* MenuViewController.swift in Sources */,
 				62DB46792778DF4800BF9422 /* ObservableOptions.swift in Sources */,
 				623AD78F276E5146007883A7 /* AppDelegate.swift in Sources */,
+				6284F46C279069B0000850FC /* Observable.swift in Sources */,
 				62E53EAE278F592500DC5412 /* GameModeCaretaker.swift in Sources */,
 				620839932779EF060095116F /* PercentResultCaretaker.swift in Sources */,
 				62EE0D7D2771EA99003591CA /* GameStrategy.swift in Sources */,

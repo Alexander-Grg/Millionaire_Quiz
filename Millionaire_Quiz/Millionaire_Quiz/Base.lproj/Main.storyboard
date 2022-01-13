@@ -55,7 +55,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Press here to launch"/>
                                 <connections>
                                     <action selector="launchGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TnK-Zz-9fY"/>
-                                    <segue destination="D1R-0F-suW" kind="show" identifier="startGameSegue" id="R6t-LX-8fB"/>
+                                    <segue destination="D1R-0F-suW" kind="presentation" identifier="startGameSegue" modalPresentationStyle="fullScreen" id="R6t-LX-8fB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N75-EB-BKZ">
@@ -263,20 +263,20 @@
             <objects>
                 <viewController id="D1R-0F-suW" customClass="GameFlowViewController" customModule="Millionaire_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HKc-M9-Qel">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-fA-sjM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no questions yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-g2-L7Q">
-                                <rect key="frame" x="10" y="60" width="394" height="36"/>
+                                <rect key="frame" x="10" y="104" width="394" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJy-7J-NZv">
-                                <rect key="frame" x="40" y="146" width="334" height="31"/>
+                                <rect key="frame" x="40" y="190" width="334" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="1"/>
                                 <connections>
@@ -284,7 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHx-yd-VCA">
-                                <rect key="frame" x="40" y="227" width="334" height="31"/>
+                                <rect key="frame" x="40" y="271" width="334" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="2"/>
                                 <connections>
@@ -292,7 +292,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-WV-Ado">
-                                <rect key="frame" x="40" y="308" width="334" height="31"/>
+                                <rect key="frame" x="40" y="352" width="334" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="3"/>
                                 <connections>
@@ -300,7 +300,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pya-87-hVQ">
-                                <rect key="frame" x="40" y="390" width="334" height="30"/>
+                                <rect key="frame" x="40" y="434" width="334" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7ep-r0-xe6"/>
                                 </constraints>
@@ -310,14 +310,14 @@
                                     <action selector="fourthButton:" destination="D1R-0F-suW" eventType="touchUpInside" id="vUz-ti-cLC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-pQ-rYf">
-                                <rect key="frame" x="186" y="470" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-pQ-rYf">
+                                <rect key="frame" x="20" y="514" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmj-Ir-9Fr">
-                                <rect key="frame" x="154" y="514" width="106" height="31"/>
+                                <rect key="frame" x="154" y="558" width="106" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Exit"/>
                                 <connections>
@@ -335,7 +335,7 @@
                             <constraint firstItem="OJy-7J-NZv" firstAttribute="top" secondItem="OVe-g2-L7Q" secondAttribute="bottom" constant="50" id="DPL-5M-VXt"/>
                             <constraint firstItem="jug-wF-gR4" firstAttribute="trailing" secondItem="Xmj-Ir-9Fr" secondAttribute="trailing" constant="154" id="DSi-5K-5aB"/>
                             <constraint firstItem="OJy-7J-NZv" firstAttribute="leading" secondItem="jug-wF-gR4" secondAttribute="leading" constant="40" id="FGH-Ly-IOj"/>
-                            <constraint firstItem="jug-wF-gR4" firstAttribute="trailing" secondItem="gGC-pQ-rYf" secondAttribute="trailing" constant="186" id="JYD-va-BRi"/>
+                            <constraint firstItem="jug-wF-gR4" firstAttribute="trailing" secondItem="gGC-pQ-rYf" secondAttribute="trailing" constant="20" id="JYD-va-BRi"/>
                             <constraint firstItem="Pya-87-hVQ" firstAttribute="trailing" secondItem="jRn-WV-Ado" secondAttribute="trailing" id="Occ-Ks-DFV"/>
                             <constraint firstItem="OVe-g2-L7Q" firstAttribute="leading" secondItem="jug-wF-gR4" secondAttribute="leading" constant="10" id="S6V-IM-gVY"/>
                             <constraint firstItem="OVe-g2-L7Q" firstAttribute="top" secondItem="jug-wF-gR4" secondAttribute="top" constant="60" id="WDI-eF-j2W"/>
@@ -345,7 +345,7 @@
                             <constraint firstItem="Xmj-Ir-9Fr" firstAttribute="top" secondItem="gGC-pQ-rYf" secondAttribute="bottom" constant="23" id="cZC-w6-zRF"/>
                             <constraint firstItem="jug-wF-gR4" firstAttribute="trailing" secondItem="zHx-yd-VCA" secondAttribute="trailing" constant="40" id="eao-2C-COQ"/>
                             <constraint firstItem="jug-wF-gR4" firstAttribute="trailing" secondItem="OVe-g2-L7Q" secondAttribute="trailing" constant="10" id="epp-t5-5XO"/>
-                            <constraint firstItem="gGC-pQ-rYf" firstAttribute="leading" secondItem="jug-wF-gR4" secondAttribute="leading" constant="186" id="f7K-Zv-UhV"/>
+                            <constraint firstItem="gGC-pQ-rYf" firstAttribute="leading" secondItem="jug-wF-gR4" secondAttribute="leading" constant="20" id="f7K-Zv-UhV"/>
                             <constraint firstItem="Pya-87-hVQ" firstAttribute="leading" secondItem="jRn-WV-Ado" secondAttribute="leading" id="j1V-DE-9US"/>
                             <constraint firstItem="zHx-yd-VCA" firstAttribute="top" secondItem="OJy-7J-NZv" secondAttribute="bottom" constant="50" id="ll1-gL-H2P"/>
                             <constraint firstItem="gGC-pQ-rYf" firstAttribute="top" secondItem="Pya-87-hVQ" secondAttribute="bottom" constant="50" id="lnR-Y5-5EJ"/>
@@ -357,6 +357,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uX3-TM-bjR"/>
                     <connections>
+                        <outlet property="answersLabel" destination="gGC-pQ-rYf" id="GIs-Ey-sbb"/>
                         <outlet property="questionLabel" destination="OVe-g2-L7Q" id="fh0-Mp-a4k"/>
                         <outletCollection property="Buttons" destination="OJy-7J-NZv" collectionClass="NSMutableArray" id="gok-bT-a77"/>
                         <outletCollection property="Buttons" destination="zHx-yd-VCA" collectionClass="NSMutableArray" id="BFO-5R-bgB"/>

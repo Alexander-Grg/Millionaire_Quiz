@@ -2,18 +2,18 @@
 //  Observable.swift
 //  Millionaire_Quiz
 //
-//  Created by Alexander Grigoryev on 26.12.2021.
+//  Created by Alexander Grigoryev on 13.01.2022.
 //
 
 import Foundation
 
 public class Observable<Type> {
-    
+
     fileprivate class Callback {
         fileprivate weak var observer: AnyObject?
         fileprivate let options: [ObservableOptions]
         fileprivate let closure: (Type, ObservableOptions) -> Void
-        
+
         fileprivate init(observer: AnyObject,
                          options: [ObservableOptions],
                          closure: @escaping (Type, ObservableOptions) -> Void) {
@@ -22,7 +22,7 @@ public class Observable<Type> {
             self.closure = closure
         }
     }
-    
+
     // MARK: - Properties
     public var value: Type {
         didSet {
@@ -31,15 +31,15 @@ public class Observable<Type> {
             notifyCallbacks(value: value, option: .new)
         }
     }
-    
+
     // MARK: - Object Lifecycle
     public init(_ value: Type) {
         self.value = value
     }
-    
+
     // MARK: - Managing Observers
     private var callbacks: [Callback] = []
-    
+
     public func addObserver(_ observer: AnyObject,
                             removeIfExists: Bool = true,
                             options: [ObservableOptions] = [.new],
@@ -47,27 +47,27 @@ public class Observable<Type> {
         if removeIfExists {
             removeObserver(observer)
         }
-        
+
         let callback = Callback(observer: observer,
                                 options: options,
                                 closure: closure)
         callbacks.append(callback)
-        
+
         if options.contains(.initial) {
             closure(value, .initial)
         }
     }
-    
+
     public func removeObserver(_ observer: AnyObject) {
         callbacks = callbacks.filter { $0.observer !== observer }
     }
-    
+
     // MARK: - Private
-    
+
     private func removeNilObserverCallbacks() {
         callbacks = callbacks.filter { $0.observer != nil }
     }
-    
+
     private func notifyCallbacks(value: Type,
                                  option: ObservableOptions) {
         let callbacksToNotify = callbacks.filter {
