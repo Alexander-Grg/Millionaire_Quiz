@@ -20,6 +20,7 @@ class GameFlowViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var Buttons: [UIButton]!
     @IBOutlet var answersLabel: UILabel!
+    let totalQuestions = gameSingleton.shared.questions.count
     
     private var createStrategy: GameModeStrategy {
         switch self.gameMode {
@@ -29,47 +30,18 @@ class GameFlowViewController: UIViewController {
             return RandomGameMode()
         }
     }
-//    private let createModeStrategy: GameModeStrategy
-//    fileprivate init(createModeStrategy: GameModeStrategy){
-//        self.createModeStrategy = createModeStrategy
-//        super.init()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-//    var questions = [Question]()
+
     var questionsFromUD = gameSingleton.shared.questions
     var answerNumber = Int()
     var answeredQuestions = Observable<Int>(0)
-//    var answeredQuestions = Observable<Int>(0).value
     var gameMode: SwitchGameMode = .standard
     weak var gameDelegate: GameDelegate?
-    
-    
-//    private var switchModes: ModeSettings
-    
-    
-//    init(mode: SwitchGameMode) {
-//        self.switchModes = ModeSettings(mode: mode)
-//        super.init(coder: NSCoder)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 
-    
-
-    
     @IBAction func firstButton(_ sender: Any) {
         if answerNumber == 1 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
             
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-          
-//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -81,7 +53,6 @@ class GameFlowViewController: UIViewController {
             answeredQuestions.value += 1
 
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -92,7 +63,6 @@ class GameFlowViewController: UIViewController {
         if answerNumber == 3 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -103,7 +73,7 @@ class GameFlowViewController: UIViewController {
         if answerNumber == 4 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-//            randomGame.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
+
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -113,10 +83,10 @@ class GameFlowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        answeredQuestions.addObserver(self, options: [.new], closure: { [weak self] (answers, _)  in
-//            self?.answersLabel.text = "Скорость змеи: \(answers)" })
         answeredQuestions.addObserver(self, options: [.new, .initial]) { [weak self] (answers, _) in
-            self?.answersLabel.text = "Правильных ответов \(answers) из \(gameSingleton.shared.questions.count)"
+            
+            let percent1 = self?.percentageOfAnswers(answer: answers)
+            self?.answersLabel.text = "Correct answers \(answers) out of \(gameSingleton.shared.questions.count) (Completed \(percent1 ?? 0)%) "
         }
      
         createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
@@ -131,10 +101,6 @@ class GameFlowViewController: UIViewController {
         let alertAction = UIAlertAction(title: "To the main menu", style: .default) { [self] UIAlertAction in
             let session = GameSession(date: Date(), numberOfAnsweredQuestions: self.answeredQuestions.value)
             self.gameDelegate?.didEndGame(withResult: self.answeredQuestions.value)
-          
-                
-        
-            //            gameSingleton.shared.percentOfAnsweredQuestions(result: answeredQuestions)
             gameSingleton.shared.percentOfAnsweredQuestions(result: session)
             gameSingleton.shared.addSession(session)
             
@@ -160,6 +126,14 @@ class GameFlowViewController: UIViewController {
         }
         winningAlert.addAction(alertAction)
         present(winningAlert, animated: true, completion: nil)
+    }
+    
+    
+    private func percentageOfAnswers(answer: Int) -> Int {
+        let questionFloat = Float(answer)
+        let totalQuestionsFloat = Float(totalQuestions)
+        let percent = (questionFloat/totalQuestionsFloat) * 100
+        return Int(percent)
     }
     
 }
