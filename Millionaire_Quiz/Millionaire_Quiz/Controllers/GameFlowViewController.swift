@@ -30,13 +30,13 @@ class GameFlowViewController: UIViewController {
             return RandomGameMode()
         }
     }
-
+    
     var questionsFromUD = gameSingleton.shared.questions
     var answerNumber = Int()
     var answeredQuestions = Observable<Int>(0)
     var gameMode: SwitchGameMode = .standard
     weak var gameDelegate: GameDelegate?
-
+    
     @IBAction func firstButton(_ sender: Any) {
         if answerNumber == 1 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
@@ -51,7 +51,7 @@ class GameFlowViewController: UIViewController {
     @IBAction func secondButton(_ sender: Any) {
         if answerNumber == 2 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
-
+            
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
         } else if questionsFromUD.isEmpty {
             gameFinished()
@@ -73,7 +73,7 @@ class GameFlowViewController: UIViewController {
         if answerNumber == 4 && !questionsFromUD.isEmpty {
             answeredQuestions.value += 1
             createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-
+            
         } else if questionsFromUD.isEmpty {
             gameFinished()
         } else {
@@ -88,9 +88,9 @@ class GameFlowViewController: UIViewController {
             let percent1 = self?.percentageOfAnswers(answer: answers)
             self?.answersLabel.text = "Correct answers \(answers) out of \(gameSingleton.shared.questions.count) (Completed \(percent1 ?? 0)%) "
         }
-     
+        
         createStrategy.questionPicker(questions: &questionsFromUD, buttons: Buttons, label: questionLabel, answerNumber: &answerNumber)
-     
+        
         
     }
     
@@ -129,11 +129,16 @@ class GameFlowViewController: UIViewController {
     }
     
     
-    private func percentageOfAnswers(answer: Int) -> Int {
-        let questionFloat = Float(answer)
+    private func percentageOfAnswers(answer: Int?) -> Int {
+        
+        let questionFloat = Float(answer ?? 0)
         let totalQuestionsFloat = Float(totalQuestions)
         let percent = (questionFloat/totalQuestionsFloat) * 100
-        return Int(percent)
+        if percent > 0 {
+            return Int(percent)
+        } else {
+            return 0
+        }
     }
     
 }

@@ -11,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PkL-xT-g9y">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="uge-B6-Oi3" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="uge-B6-Oi3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9AK-8D-yqA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -36,13 +36,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Millionaire the game!" textAlignment="center" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1y-6o-4L1">
-                                <rect key="frame" x="30" y="262" width="354" height="41"/>
+                                <rect key="frame" x="30" y="306" width="354" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPG-4Y-9kU">
-                                <rect key="frame" x="85" y="541" width="244" height="31"/>
+                                <rect key="frame" x="85" y="585" width="244" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Game results"/>
                                 <connections>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93F-Mn-S68">
-                                <rect key="frame" x="85" y="485" width="244" height="31"/>
+                                <rect key="frame" x="85" y="529" width="244" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Press here to launch"/>
                                 <connections>
@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N75-EB-BKZ">
-                                <rect key="frame" x="130" y="597" width="154" height="31"/>
+                                <rect key="frame" x="130" y="641" width="154" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Settings"/>
                                 <connections>
@@ -67,13 +67,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-ag-9Xl">
-                                <rect key="frame" x="15" y="648" width="384" height="21"/>
+                                <rect key="frame" x="15" y="692" width="384" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1MN-yr-hR4">
-                                <rect key="frame" x="80" y="694" width="254" height="32"/>
+                                <rect key="frame" x="80" y="738" width="254" height="32"/>
                                 <segments>
                                     <segment title="Standard mode"/>
                                     <segment title="Random mode"/>
@@ -123,11 +123,11 @@
             <objects>
                 <viewController id="XeP-R2-o6a" customClass="ResultsTableViewController" customModule="Millionaire_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqv-0n-k9u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SSH-Rw-Jdi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultsCell" rowHeight="139" id="H4P-Vs-vSs">
@@ -168,20 +168,20 @@
             <objects>
                 <viewController id="iYG-Gs-Xqa" customClass="SettingsViewController" customModule="Millionaire_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mTG-X8-SdX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="WeI-UV-Lgb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xX3-CP-W70">
-                                <rect key="frame" x="70" y="130" width="274" height="39.5"/>
+                                <rect key="frame" x="70" y="188" width="274" height="39.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Add user question">
                                             <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <font key="NSFont" size="22" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -193,15 +193,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngY-3i-xx6">
-                                <rect key="frame" x="70" y="189.5" width="274" height="31"/>
+                                <rect key="frame" x="70" y="247.5" width="274" height="39.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add standard questions"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Add standard questions">
+                                            <attributes>
+                                                <font key="NSFont" size="22" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="addStandard:" destination="iYG-Gs-Xqa" eventType="touchUpInside" id="c6i-Sx-kkz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWP-UP-Hgd">
-                                <rect key="frame" x="70" y="240.5" width="274" height="28"/>
+                                <rect key="frame" x="70" y="307" width="274" height="28"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete all questions" titleAlignment="center">
@@ -211,48 +219,26 @@
                                     <action selector="deleteQuestions:" destination="iYG-Gs-Xqa" eventType="touchUpInside" id="cDF-Nv-Fdo"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xvc-vR-eJL">
-                                <rect key="frame" x="80" y="74" width="254" height="32"/>
-                                <segments>
-                                    <segment title="Standard mode"/>
-                                    <segment title="Random mode"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emg-0U-6wp">
-                                <rect key="frame" x="160" y="45" width="94" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Cd-ox-plq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OWP-UP-Hgd" firstAttribute="leading" secondItem="0Cd-ox-plq" secondAttribute="leading" constant="70" id="0HN-Cv-H7b"/>
-                            <constraint firstItem="xvc-vR-eJL" firstAttribute="leading" secondItem="0Cd-ox-plq" secondAttribute="leading" constant="80" id="0JB-of-yuH"/>
-                            <constraint firstItem="Emg-0U-6wp" firstAttribute="leading" secondItem="0Cd-ox-plq" secondAttribute="leading" constant="160" id="ArG-BJ-gjK"/>
                             <constraint firstItem="xX3-CP-W70" firstAttribute="leading" secondItem="0Cd-ox-plq" secondAttribute="leading" constant="70" id="DvH-4g-zAb"/>
                             <constraint firstItem="WeI-UV-Lgb" firstAttribute="top" secondItem="mTG-X8-SdX" secondAttribute="top" id="Ggd-pr-Ooo"/>
-                            <constraint firstItem="xX3-CP-W70" firstAttribute="top" secondItem="xvc-vR-eJL" secondAttribute="bottom" constant="25" id="NvM-6s-rkw"/>
+                            <constraint firstItem="xX3-CP-W70" firstAttribute="top" secondItem="0Cd-ox-plq" secondAttribute="top" constant="100" id="Lnc-c6-AsD"/>
                             <constraint firstItem="WeI-UV-Lgb" firstAttribute="leading" secondItem="mTG-X8-SdX" secondAttribute="leading" id="O5S-rw-ABT"/>
                             <constraint firstItem="OWP-UP-Hgd" firstAttribute="top" secondItem="ngY-3i-xx6" secondAttribute="bottom" constant="20" id="Qc9-hM-KAp"/>
                             <constraint firstAttribute="bottom" secondItem="WeI-UV-Lgb" secondAttribute="bottom" id="Rm7-Lp-aia"/>
                             <constraint firstItem="0Cd-ox-plq" firstAttribute="trailing" secondItem="ngY-3i-xx6" secondAttribute="trailing" constant="70" id="YRB-8G-3Si"/>
-                            <constraint firstItem="Emg-0U-6wp" firstAttribute="top" secondItem="mTG-X8-SdX" secondAttribute="top" constant="45" id="c8O-mi-8CV"/>
-                            <constraint firstItem="0Cd-ox-plq" firstAttribute="trailing" secondItem="Emg-0U-6wp" secondAttribute="trailing" constant="160" id="e8G-7R-Mh2"/>
                             <constraint firstItem="ngY-3i-xx6" firstAttribute="leading" secondItem="0Cd-ox-plq" secondAttribute="leading" constant="70" id="gVQ-TE-xpy"/>
                             <constraint firstItem="0Cd-ox-plq" firstAttribute="trailing" secondItem="xX3-CP-W70" secondAttribute="trailing" constant="70" id="hDg-vZ-Yog"/>
-                            <constraint firstItem="xvc-vR-eJL" firstAttribute="top" secondItem="Emg-0U-6wp" secondAttribute="bottom" constant="8" id="ich-y8-Zsl"/>
                             <constraint firstItem="ngY-3i-xx6" firstAttribute="top" secondItem="xX3-CP-W70" secondAttribute="bottom" constant="20" id="nHW-Kk-kUe"/>
                             <constraint firstItem="0Cd-ox-plq" firstAttribute="trailing" secondItem="OWP-UP-Hgd" secondAttribute="trailing" constant="70" id="oYJ-6F-0TG"/>
-                            <constraint firstItem="0Cd-ox-plq" firstAttribute="trailing" secondItem="xvc-vR-eJL" secondAttribute="trailing" constant="80" id="qch-w3-pul"/>
                             <constraint firstAttribute="trailing" secondItem="WeI-UV-Lgb" secondAttribute="trailing" id="rad-UL-bxp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zzd-K0-kKd"/>
-                    <connections>
-                        <outlet property="gameModeControl" destination="xvc-vR-eJL" id="3fD-cH-iKH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wn3-Z4-nmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -372,7 +358,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bOZ-Ch-paP"/>
+        <segue reference="gNR-ZH-bWc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="3224" height="4829"/>

@@ -12,7 +12,7 @@ class GameSession: Codable, GameDelegate  {
     var date: Date
     var questionsDelegate: GameDelegate?
     var numberOfAnsweredQuestions: Int = 0
-
+    
     
     func didEndGame(withResult result: Int) {
         self.questionsDelegate?.didEndGame(withResult: result)

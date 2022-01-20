@@ -14,21 +14,10 @@ protocol GameModeDelegate {
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet var gameModeControl: UISegmentedControl!
     @IBAction func addCustomQuestion(_ sender: Any) {
         addQuestions()
     }
     
-//    private var gameMode: SwitchGameMode {
-//        switch self.gameModeControl.selectedSegmentIndex {
-//        case 0:
-//            return .standard
-//        case 1:
-//            return .random
-//        default:
-//            return .standard
-//        }
-//    }
     
     var gameModeDelegate: GameModeDelegate?
     
@@ -40,17 +29,6 @@ class SettingsViewController: UIViewController {
         UserDefaults.standard.reset()
         alertOfCancel()
     }
-
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        switch segue.identifier {
-//        case "goToSettings":
-//            guard let destination = segue.destination as? GameFlowViewController else { return }
-//            destination.gameMode = self.gameMode
-//        default:
-//            break
-//        }
-//    }
     
     private func addStandardQuestions() {
         let question1 = Question(question: "Who is the president of Russia?", answers: ["Will Smith", "Bruce Li", "Vladimir Putin", "Barack Obama"], correctAnswer: 3)
