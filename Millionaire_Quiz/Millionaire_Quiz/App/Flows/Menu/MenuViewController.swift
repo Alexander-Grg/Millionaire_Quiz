@@ -8,8 +8,6 @@
 import UIKit
 
 class MenuViewController: UIViewController  {
-    
-    
     @IBOutlet var gameModeControl: UISegmentedControl!
     @IBOutlet var startGameButton: UIButton!
     @IBOutlet var lastResultLabel: UILabel!

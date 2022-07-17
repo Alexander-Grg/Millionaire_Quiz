@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 final class gameSingleton {
-    
     static let shared = gameSingleton()
     private let resultsCaretaker = ResultsCareTaker()
     private let questionsCareTaker = QuestionsCaretaker()

@@ -84,61 +84,117 @@
 		623AD78D276E5146007883A7 /* Millionaire_Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				62589587276F8C69001EB0A4 /* Patterns */,
-				623AD7A3276E5179007883A7 /* Models */,
-				623AD7A2276E516A007883A7 /* Controllers */,
-				623AD78E276E5146007883A7 /* AppDelegate.swift */,
-				623AD790276E5146007883A7 /* SceneDelegate.swift */,
-				623AD794276E5146007883A7 /* Main.storyboard */,
-				623AD797276E5146007883A7 /* Assets.xcassets */,
-				623AD799276E5146007883A7 /* LaunchScreen.storyboard */,
-				623AD79C276E5146007883A7 /* Info.plist */,
+				62B02E0B288446AE00D51B8D /* App */,
+				62B02E10288446E900D51B8D /* Environment */,
+				62B02E0F288446DF00D51B8D /* Resources */,
 			);
 			path = Millionaire_Quiz;
 			sourceTree = "<group>";
 		};
-		623AD7A2276E516A007883A7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				623AD792276E5146007883A7 /* MenuViewController.swift */,
-				623AD7A6276E535E007883A7 /* GameFlowViewController.swift */,
-				624CBC69277099070012ED11 /* ResultsTableViewController.swift */,
-				62EE0D782771D779003591CA /* SettingsViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		623AD7A3276E5179007883A7 /* Models */ = {
+		623AD7A3276E5179007883A7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				623AD7A4276E518E007883A7 /* QuestionStructure.swift */,
-				6258958A276F8CBC001EB0A4 /* GameSession.swift */,
-				62EE0D7C2771EA99003591CA /* GameStrategy.swift */,
-				62FCD3AD27725AA8009D17D2 /* GameModeEnum.swift */,
 			);
-			path = Models;
+			path = Entity;
 			sourceTree = "<group>";
 		};
-		62589587276F8C69001EB0A4 /* Patterns */ = {
+		62B02E0B288446AE00D51B8D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				62DB46752778DF1800BF9422 /* Observable */,
+				623AD790276E5146007883A7 /* SceneDelegate.swift */,
+				623AD78E276E5146007883A7 /* AppDelegate.swift */,
+				623AD7A3276E5179007883A7 /* Entity */,
+				62B02E0D288446BD00D51B8D /* Business logic */,
+				62B02E0C288446B400D51B8D /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		62B02E0C288446B400D51B8D /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				62B02E122884485200D51B8D /* Result */,
+				62B02E112884476F00D51B8D /* Game */,
+				62B02E132884487500D51B8D /* Menu */,
+				62B02E142884487E00D51B8D /* Settings */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		62B02E0D288446BD00D51B8D /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
 				62589588276F8C85001EB0A4 /* gameSingleton.swift */,
+				62DB46752778DF1800BF9422 /* Observer */,
+			);
+			path = "Business logic";
+			sourceTree = "<group>";
+		};
+		62B02E0F288446DF00D51B8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				623AD794276E5146007883A7 /* Main.storyboard */,
+				623AD799276E5146007883A7 /* LaunchScreen.storyboard */,
+				623AD797276E5146007883A7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		62B02E10288446E900D51B8D /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				623AD79C276E5146007883A7 /* Info.plist */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		62B02E112884476F00D51B8D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				623AD7A6276E535E007883A7 /* GameFlowViewController.swift */,
+				62FCD3AD27725AA8009D17D2 /* GameModeEnum.swift */,
+				62EE0D7C2771EA99003591CA /* GameStrategy.swift */,
+				6258958A276F8CBC001EB0A4 /* GameSession.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		62B02E122884485200D51B8D /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				624CBC69277099070012ED11 /* ResultsTableViewController.swift */,
 				628275612774B17400338384 /* QuestionsCaretaker.swift */,
 				624CBC6B2770AC880012ED11 /* ResultsCaretaker.swift */,
 				620839922779EF060095116F /* PercentResultCaretaker.swift */,
 			);
-			path = Patterns;
+			path = Result;
 			sourceTree = "<group>";
 		};
-		62DB46752778DF1800BF9422 /* Observable */ = {
+		62B02E132884487500D51B8D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				623AD792276E5146007883A7 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		62B02E142884487E00D51B8D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				62EE0D782771D779003591CA /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		62DB46752778DF1800BF9422 /* Observer */ = {
 			isa = PBXGroup;
 			children = (
 				62DB46782778DF4800BF9422 /* ObservableOptions.swift */,
 				62D52CD22778E6590088BD31 /* ObserverClass.swift */,
 				6284F46B279069B0000850FC /* Observable.swift */,
 			);
-			path = Observable;
+			path = Observer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,7 +435,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59ZJVMG2BA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Millionaire_Quiz/Info.plist;
+				INFOPLIST_FILE = Millionaire_Quiz/Environment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -407,7 +463,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59ZJVMG2BA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Millionaire_Quiz/Info.plist;
+				INFOPLIST_FILE = Millionaire_Quiz/Environment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
