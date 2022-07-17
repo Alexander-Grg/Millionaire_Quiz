@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func addStandardQuestions() {
-        let question1 = Question(question: "Who is the president of Russia?", answers: ["Will Smith", "Bruce Li", "Vladimir Putin", "Barack Obama"], correctAnswer: 3)
+        let question1 = Question(question: "What is the closest red planet to Earth?", answers: ["Venus", "Uranus", "Mars", "Saturn"], correctAnswer: 3)
         let question2 = Question(question: "Who won the first oscar as the best actor?", answers: ["Emil Jannings","Janet Gaynor","Charlie Chaplin","Karl Struss"], correctAnswer: 1)
         let question3 = Question(question: "What is the capital of Chile?", answers: ["Santiago","Melipilla","San Antonio","Melbourne"], correctAnswer: 1)
         let question4 = Question(question: "What is the highest mountain in Britain?", answers: ["Snowdon","Scafell Pike","Ben Nevis","Everest"], correctAnswer: 2)

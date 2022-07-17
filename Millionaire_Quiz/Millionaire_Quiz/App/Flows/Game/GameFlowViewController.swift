@@ -12,7 +12,6 @@ protocol GameDelegate: AnyObject {
 }
 
 class GameFlowViewController: UIViewController {
-    
     @IBAction func gameExit(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         
@@ -83,6 +82,11 @@ class GameFlowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.questionsFromUD.isEmpty {
+            for button in Buttons {
+                button.isHidden = true
+            }
+        }
         answeredQuestions.addObserver(self, options: [.new, .initial]) { [weak self] (answers, _) in
             
             let percent1 = self?.percentageOfAnswers(answer: answers)
@@ -134,7 +138,7 @@ class GameFlowViewController: UIViewController {
         let questionFloat = Float(answer ?? 0)
         let totalQuestionsFloat = Float(totalQuestions)
         let percent = (questionFloat/totalQuestionsFloat) * 100
-        if percent > 0 {
+        if percent > 0  {
             return Int(percent)
         } else {
             return 0
