@@ -73,7 +73,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func addQuestions() {
-        let alertController = UIAlertController(title: "Adding a user questions",
+        let alertController = UIAlertController(title: "Adding user questions",
                                                 message: nil,
                                                 preferredStyle: .alert)
         alertController.addTextField { UITextField in
